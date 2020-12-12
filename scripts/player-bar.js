@@ -22,27 +22,29 @@
         if (nextSongIndex >= album.songs.length) { 
             return; 
         }
+        
+        player.playPause(nextSong);
+    
+        
 
+        });
 
-        //if (player.playState === 'playing') {
+        $('button#previous').on('click', function() {
+            if (player.playState === 'playing') {
 
             //Obtiene el número de canción actual del array Songs
-           //const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
+           const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
 
             //Obtiene el número de la siguiente canción
-           //const nextSongIndex = currentSongIndex + 1;
+           const previousSongIndex = currentSongIndex - 1;
 
             //Identifica si se está reproduciendo una canción del álbum
-            //if (nextSongIndex < album.songs.length) {
-                //Obtiene los datos de la siguiente canción 
-                //const nextSong = album.songs[nextSongIndex];
-                //player.playPause(nextSong);
-            //}
-        //} 
-
-
-        player.playPause(nextSong);
-
+            if (previousSongIndex >= 0) {
+            //Obtiene los datos de la siguiente canción 
+            const previousSong = album.songs[previousSongIndex];
+            player.playPause(previousSong);
         
+            }    
+            }
       });
 }
